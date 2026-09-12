@@ -155,27 +155,6 @@
     50%{ transform: translateY(10px); }
   }
 
-  /* highlight while narration is reading a block */
-  .narrating{
-    position: relative;
-  }
-  .narrating::before{
-    content:"";
-    position:absolute;
-    top:-10px; left:-14px; right:-14px; bottom:-10px;
-    border: 1px solid var(--gold-bright);
-    border-radius: 8px;
-    background: rgba(201,154,63,0.08);
-    box-shadow: 0 0 22px rgba(201,154,63,0.35);
-    pointer-events:none;
-    z-index: -1;
-    animation: glow 1.6s ease-in-out infinite;
-  }
-  @keyframes glow{
-    0%,100%{ opacity: 0.6; }
-    50%{ opacity: 1; }
-  }
-
   main{
     position: relative;
     z-index: 2;
@@ -282,60 +261,6 @@
   }
   .small-divider svg{ width:100%; height:100%; display:block; }
 
-  /* ---------- Narration control ---------- */
-  .narrate-bar{
-    position: fixed;
-    bottom: 22px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 50;
-    display:flex;
-    gap: 8px;
-    align-items:center;
-  }
-  .narrate-btn{
-    font-family: 'MedievalSharp', serif;
-    font-size: 15px;
-    color: var(--parchment);
-    background: linear-gradient(180deg, var(--wood-light), var(--wood-dark));
-    border: 1px solid var(--gold-bright);
-    border-radius: 999px;
-    padding: 10px 18px;
-    cursor: pointer;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.5);
-    white-space: nowrap;
-  }
-  .narrate-btn:active{ transform: translateY(1px); }
-  .narrate-stop{
-    font-family: 'MedievalSharp', serif;
-    font-size: 14px;
-    color: var(--parchment);
-    background: rgba(58,44,26,0.85);
-    border: 1px solid var(--gold);
-    border-radius: 999px;
-    padding: 10px 14px;
-    cursor: pointer;
-    display:none;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
-  }
-  .narrate-note{
-    position: fixed;
-    bottom: 68px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 50;
-    font-family: 'EB Garamond', serif;
-    font-size: 13px;
-    color: var(--parchment);
-    background: rgba(58,44,26,0.85);
-    padding: 6px 12px;
-    border-radius: 6px;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events:none;
-  }
-  .narrate-note.show{ opacity: 1; }
-
   @media (max-width: 600px){
     body{ font-size: 17px; }
     header.hero{ min-height: 88svh; padding: 6vh 8vw; }
@@ -348,8 +273,6 @@
     .drop{ font-size: 2.6em; }
     .snub, .blessing{ padding: 1em 0.9em; font-size: 1.05em; }
     .scroll-hint{ margin-top: 2em; }
-    .narrate-btn{ font-size: 13px; padding: 9px 14px; }
-    .narrate-bar{ bottom: 16px; }
   }
 
   @media (max-width: 360px){
@@ -375,7 +298,7 @@
         <line x1="15" y1="76" x2="85" y2="76"/>
       </svg>
     </div>
-    <div data-narrate>
+    <div>
       <h1 class="title">The Tale of the<br>Grizzled Warrior and His Princess</h1>
       <div class="subtitle">A Chronicle, Lovingly Exaggerated</div>
     </div>
@@ -392,7 +315,7 @@
 
   <main>
 
-    <section class="chapter" data-narrate>
+    <section class="chapter">
       <div class="chapter-icon">
         <!-- Three figures / meeting -->
         <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
@@ -406,7 +329,7 @@
       <p>Through years of battles, Account Managers, and questionable decisions, the ancient warrior became not only a trusted colleague, but a dear friend.</p>
     </section>
 
-    <section class="chapter" data-narrate>
+    <section class="chapter">
       <div class="chapter-icon">
         <!-- Giant teacup: The Kazan -->
         <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -423,7 +346,7 @@
       <p class="jest">Many seasons passed.</p>
     </section>
 
-    <section class="chapter" data-narrate>
+    <section class="chapter">
       <div class="chapter-icon">
         <!-- Mountains / road / journey -->
         <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
@@ -438,7 +361,7 @@
       <p>Meanwhile, the three loyal companions remained behind, bravely defending the homeland and patiently awaiting the warrior's annual return.</p>
     </section>
 
-    <section class="chapter" data-narrate>
+    <section class="chapter">
       <div class="chapter-icon">
         <!-- Scroll / invitation -->
         <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
@@ -460,7 +383,7 @@
       <p>Still, like true friends &mdash; and much like the Ferrari F1 pit-wall team &mdash; they chose to believe that it must have been the water.</p>
     </section>
 
-    <section class="chapter" data-narrate>
+    <section class="chapter">
       <div class="chapter-icon">
         <!-- Castle with returning banners -->
         <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
@@ -474,7 +397,7 @@
       <p>Though the road between Austria and Bulgaria may be long, once every year the kingdom welcomes its wandering royals home, where food is plentiful, drinks flow freely, The Kazan is filled, and the three forgotten companions eagerly await their annual appearance.</p>
     </section>
 
-    <section class="chapter" data-narrate>
+    <section class="chapter">
       <div class="chapter-icon">
         <!-- Rings -->
         <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3">
@@ -500,7 +423,7 @@
         <circle cx="60" cy="10" r="5"/>
       </svg>
     </div>
-    <div data-narrate>
+    <div>
       <div class="final">Live happily ever after.</div>
       <div class="hearts">❤️ 🥂</div>
     </div>
@@ -509,14 +432,7 @@
 
 <div class="scroll-rod bottom"></div>
 
-<div class="narrate-note" id="narrate-note">Narration uses your browser's built-in voice &mdash; quality varies by device.</div>
-<div class="narrate-bar">
-  <button class="narrate-btn" id="narrate-btn">🔊 Narrate the Tale</button>
-  <button class="narrate-stop" id="narrate-stop">✕ Stop</button>
-</div>
-
 <script>
-  // ---- Scroll-reveal for chapters ----
   const chapters = document.querySelectorAll('.chapter');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -524,96 +440,6 @@
     });
   }, { threshold: 0.15 });
   chapters.forEach(ch => revealObserver.observe(ch));
-
-  // ---- Narration ----
-  const narrateBtn = document.getElementById('narrate-btn');
-  const narrateStop = document.getElementById('narrate-stop');
-  const narrateNote = document.getElementById('narrate-note');
-  const synth = window.speechSynthesis;
-  let queue = [];
-  let state = 'idle'; // idle | playing | paused
-  let noteTimer = null;
-
-  function showNote(){
-    narrateNote.classList.add('show');
-    clearTimeout(noteTimer);
-    noteTimer = setTimeout(() => narrateNote.classList.remove('show'), 3500);
-  }
-
-  function buildQueue(){
-    queue = Array.from(document.querySelectorAll('[data-narrate]'))
-      .map(el => ({ el, text: el.innerText.trim() }))
-      .filter(b => b.text.length > 0);
-  }
-
-  function clearHighlights(){
-    document.querySelectorAll('.narrating').forEach(e => e.classList.remove('narrating'));
-  }
-
-  function updateButtons(){
-    if (state === 'idle'){
-      narrateBtn.textContent = '🔊 Narrate the Tale';
-      narrateStop.style.display = 'none';
-    } else if (state === 'playing'){
-      narrateBtn.textContent = '⏸ Pause';
-      narrateStop.style.display = 'inline-block';
-    } else if (state === 'paused'){
-      narrateBtn.textContent = '▶ Resume';
-      narrateStop.style.display = 'inline-block';
-    }
-  }
-
-  function speakFrom(i){
-    if (!synth || i >= queue.length){
-      state = 'idle';
-      clearHighlights();
-      updateButtons();
-      return;
-    }
-    const { el, text } = queue[i];
-    clearHighlights();
-    el.classList.add('narrating');
-    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.rate = 0.93;
-    utter.pitch = 0.92;
-    utter.onend = () => {
-      if (state === 'playing') speakFrom(i + 1);
-    };
-    utter.onerror = () => {
-      if (state === 'playing') speakFrom(i + 1);
-    };
-    queue.currentIndex = i;
-    synth.speak(utter);
-  }
-
-  narrateBtn.addEventListener('click', () => {
-    if (!synth){
-      alert("Sorry, this browser doesn't support built-in narration (Speech Synthesis).");
-      return;
-    }
-    if (state === 'idle'){
-      buildQueue();
-      state = 'playing';
-      showNote();
-      speakFrom(0);
-    } else if (state === 'playing'){
-      synth.pause();
-      state = 'paused';
-    } else if (state === 'paused'){
-      synth.resume();
-      state = 'playing';
-    }
-    updateButtons();
-  });
-
-  narrateStop.addEventListener('click', () => {
-    if (synth) synth.cancel();
-    state = 'idle';
-    clearHighlights();
-    updateButtons();
-  });
 </script>
 
 </body>
